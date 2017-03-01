@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		
+		<!-- Title -->
+		<title>DINet Viewer - Help</title>
+		
+		<!-- Style sheet -->
+		<link href="style/help.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<!-- Title -->
+		<h1>DINet Viewer</h1>
+		<h1>Help</h1>
+		
+		<!-- Menu -->
+		<nav>
+		  <ul>
+
+			<li><a href="#ancre1">Interface Overview</a></li>
+			<li><a href="#ancre2">Data Import/Export</a></li>
+			<li><a href="#ancre3">Graph Manipulation</a></li>
+			<li><a href="#ancre4">Graph Controls</a></li>
+			<li><a href="#ancre5">Network Exploration</a></li>
+			<li><a href="#ancre6">About</a></li>
+		  </ul>
+		</nav>
+
+		<div class="section">
+			<h2 id="ancre0">Description</h2>
+			<p> The DINet Viewer allows to visualise an image graph. <br/>
+				This platform is a proof-of-concept to support a paper presented in DAS 2016 conference <i>[1]</i>. <br/>
+				<br/>
+				A set of image is structured in a Relative Neighbourhood Graph <i>[2]</i> (RNG). <br/>
+				Using the platform, one can evaluate the relevance of the descriptors or the distances used to describe and compare the images.<br/>
+				<br/>
+			    In this demonstration the network of a 100 words subset of the Bentham dataset <i>[3]</i> is visualised. <br/>
+			    The features used are <i>BlockHOG</i> and the distance is <i>LDTW</i>. Please refer to <i>[1]</i> for more details. 
+			</p>
+			
+			<p>References:
+				<ul>
+					<li><i> [1] Fr&eacute;d&eacute;ric Rayar, Tanmoy Mondal, Sabine Barrat, Fatma Bouali et Gilles Venturini. "Visual Analysis System for Features and Distances Qualitative Assessment: Application to Word Image Matching". In the 12th International Workshop on Document Image Analysis. (DAS), 2016, Santorini, Greece.</i></li>
+					<li><i> [2] Toussaint, G. T. (1980). The relative neighbourhood graph of a finite planar set. Pattern Recognition 12, 261-268.</i></li>
+					<li><i> [3] B. Gatos, G. Louloudis, T. Causer, K. Grint, V. Romero, J. A. Sanchez, A. H. Toselli, and E. Vidal, "Ground-truth production in the tranScriptorium project," in 11th IAPR International workshop on document analysis systems (DAS), 2014, pp. 237-241.</i></li>
+
+			</p>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre1">Interface overview <span><a href="help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_50" src="images/help/interface.png" alt="Interface of the graph visualisation"></img>
+			<img class="centerImage reduceImage_50" src="images/help/plots.png" alt="Edges weights plots"></img>
+			<ol> 
+				<li>Graph canvas</li>
+				<li>Data Import/Export</li>
+				<li>Graph layout algorithms</li>
+				<li>Graph controls</li>
+				<li>Selected node information panel</li>
+				<li>Navigation controls</li>
+				<li>Edges weights distribution plot</li>
+				<li>Edges weights histogram</li>
+			</ol>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre2">Data Import/Export <span><a href="help.html">&#x25B2;</a></span></h2>
+			<p>One can load three types of files:
+				<ol>
+					<li><b>Features file</b> (euclidian distance is used to yield the RNG)</li> 
+						<img class="centerImage reduceImage_35" src="images/help/file_feature.png" alt="Feature file format"></img>
+						<ul>
+							<li>The feature input file is a plain text (*.txt) file.</li>
+							<li>One line correspond to the features vector of one image.</li>
+							<li>First column correspond to the filename of the image, with its extension.</li>	
+							<li>If features are decimal value, the decimal separator is a dot ('.').</li>
+							<li>The feature are sparated with a tabulation ('\t').</li>
+							<li>No tabulation at the end of a line.</li>
+							<li>No empty line at the end of the file.</li>
+						</ul>
+
+					<li><b>Distances Matrix file</b></li>
+						<img class="centerImage reduceImage_35" src="images/help/file_distance.png" alt="Distance matrix file format"></img>
+						<ul>
+							<li>The feature input file is a plain text (*.txt) file.</li>
+							<li>First column correspond to the filename of the image, with its extension.</li>	
+							<li>The rest of the columns correponds to the (dis)similarity matrix columns.</li>
+							<li>If values are decimal, the decimal separator is a dot ('.').</li>
+							<li>The values are sparated with a tabulation ('\t').</li>
+							<li>No tabulation at the end of a line.</li>
+							<li>No empty line at the end of the file.</li>
+						</ul>
+
+					<li><b>Graph file</b></li>
+					Either json or gexf graph format files. <br/>
+					See <i>~/data/Wang/Wang_CLD_100.dinet.json</i> and <i>~/data/Wang/Wang_CLD_100.dinet.gexf</i>.
+				</ol>
+			<br/>	
+			<p>One can export the computed and/or the laid out graph in the json or gexf format.</p>
+			<p>The <i>Clear graph</i> button allow to properly clean the workspace vefore loading another data file.</p>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre3">Graph Manipulation <span><a href="help.html">&#x25B2;</a></span></h2>
+			<p>Once the graph is displayed, it can be manipulated with common interactions:
+				<ul>
+					<li><b>Pan</b>: left-clic on the canvas background and drag.</li> 
+					<li><b>Zoom</b>: use the mouse wheel on the graph canavs to (de)zoom.</li>
+					<li><b>Hover node</b>: use the mouse to hover over a node. <br/>It will display the label of the node and a larger thumbnail of the node image on the bottom-right of the canvas.</li>
+					<li><b>Hover edge</b>: use the mouse to hover over an edge. <br/>It will became black and display the label of the node. <br/>In the given example files, the label correspond to the distance between two images.</li>
+					<li><b>Select node</b>: left-clic on a node to select it. <br/>Its information will appear on the right panel. <br/>A zoom will occur to focus on the selected node. <br/>A black border will appear on the selected node, and its neighbours will be highlighted with a halo around them.</li>
+					<li><b>Unfocus</b>: left-clicl on the graph canvas background (without dragging).</li>
+				</ul>
+
+			<h3>Graph Layouts</h3>
+			<p> Several layout algorithms can be used to lay out the graph:
+				<ul>
+					<li><b>Force Atlas 2</b> <br/> 
+						<i>Jacomy M, Venturini T, Heymann S, Bastian M (2014). "ForceAtlas2, a Continuous Graph Layout Algorithm for Handy Network Visualization Designed for the Gephi Software". PLoS ONE 9(6).</i><a href="http://journals.plos.org/plosone/article/asset?id=10.1371%2Fjournal.pone.0098679.PDF" target="_blank">PDF<a> 
+					</li>
+					<li><b>Force-Link</b> <br/>
+						<i>Extension of Force Atlas 2.</i> 
+						<a href="https://github.com/Linkurious/linkurious.js/tree/develop/plugins/sigma.layouts.forceLink" target="_blank">API</a>
+					</li>
+					<li><b>Fruchterman-Reingold</b> <br/>
+						<i>Fruchterman, Thomas M. J.; Reingold, Edward M. (1991), "Graph Drawing by Force-Directed Placement", Software – Practice & Experience (Wiley) 21 (11): 1129-1164.</i> 
+						<a href="http://emr.cs.iit.edu/~reingold/force-directed.pdf" target="_blank">PDF<a>
+					</li>
+					<li><b>Stress Majorization</b> <br/>
+						<i>Emden R. Gansner, Yehuda Koren, Stephen North. "Graph Drawing by Stress Majorization". Graph Drawing Volume 3383 of the series Lecture Notes in Computer Science pp 239-250. </i>
+						<a href="http://graphviz.org/Documentation/GKN04.pdf" target="_blank">PDF<a>
+					</li>
+					<li><b>Maxent-Stress</b> <br/> 
+						<i> Emden R. Gansner, Florham Park, Yifan Hu, Stephen North. "A Maxent-Stress Model for Graph Layout". IEEE Trans Vis Comput Graph. 2013 Jun;19(6):927-40.</i>
+						<a href="http://yifanhu.net/PUB/maxent.pdf" target="_blank">PDF<a>
+						<a></a>
+					</li>
+				</ul>
+			<br/>
+			<p> Force Atlas 2 and Force-Link need to be stopped, otherwise these algorithms will keep running on the background.</p>
+			<p> Stress Majorization and Maxent-Stress are the best choices to have a good trade-off between the visual aesthetics on the 2D plane and the original feature space topology preservation.	</p>	
+		</div>
+
+		<div class="section">
+			<h2 id="ancre4">Graph Controls <span><a href="help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_15" src="images/help/controls.png" alt="Graph manipulation controls"></img>
+			<p>Using the graph controls, one can:
+
+			<table>
+				<tr>
+					<td> <img class="button" src="images/reset_black.png" alt="Reset button" /> </td>
+					<td> Reset the graph. The default view is then displayed.</td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/hide_edges_black.png" alt="Hide edges button" />
+						 <img class="button" src="images/show_edges_black.png" alt="Show edges button" /> </td>
+					<td> Show/Hide edges. Edges are displayed by default. </td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/hide_image_black.png" alt="Show/hide images button" />
+						 <img class="button" src="images/show_image_black.png" alt="Show/hide images button" /> </td>
+					<td> Show/Hide nodes as images/plain disk. In case of internal node, the first representative is displayed. </td>
+				</tr>
+				<tr>
+					<td> <img class="button" src="images/help_black.png" alt="Help button" /></td>
+					<td> Diplay the help page. </td>
+				</tr>
+				<tr>
+					<td> <img class="button-slider" src="images/help/slider.png" alt="Node size slider" /></td>
+					<td> Change the size of the nodes. </td>
+				</tr>					
+				<tr>
+					<td> <img class="button-slider" src="images/help/filter.png" alt="Edge weight filter" /></td>
+					<td> Filter the edges with regard to their weights. </td>
+				</tr>
+			</table>
+		</div>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre5">Network Exploration <span><a href="help.html">&#x25B2;</a></span></h2>
+
+			<p>There are three ways to navigate through the graph, and thus explore the image collection.</p> 
+
+			<h4>1. Navigating in the graph canvas</h4>
+			<p> One can simply navigate in the graph drawn in the canvas by clicking its nodes of interest.</p>
+
+			<h4>2. Navigating using neighbours list</h4>
+			<img class="centerImage reduceImage_15" src="images/help/neighbours.png" alt="Navigation controls navigation"></img>	
+			<p>When a node is selected, its informations are displayed on the information panel. The panel contains the neighbours of the node.</p>
+			<p>The list of neighbours allows one to go from the current node image to another which is similar.</p>
+			<p>Hence, one can navigate in the collection from image to image.</p>
+
+
+			<h4>3. Navigating using the log</h4>
+			<img class="centerImage reduceImage_15" src="images/help/log.png" alt="Neighbours navigation"></img>
+			<p>Each node visited is kept in a navigation logfile. The logfile can be found in the "Navigation log" tab.</p>
+			<p>One can use this logfile to go back to an already visited node clicking on it on the tab.</p>
+
+			<img class="centerImage reduceImage_25" src="images/help/navigation.png" alt="Neighbours navigation"></img>
+			<p>One can also use the navigation control buttons:
+				<table>
+					<tr>
+						<td> <img class="button" src="images/first_black.png" alt="First button" /></td>
+						<td> Go back to the first selected node in the navigation log.</td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/previous_black.png" alt="Previous button" /></td>
+						<td> Go back to the previous node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/next_black.png" alt="Next button" /></td>
+						<td> Go to the next node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/last_black.png" alt="Last button" /></td>
+						<td> Go to the last selected node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/last_selected_black.png" alt="Last selected button" /></td>
+						<td> Go to the last selected node (can be useful after unfocusing) </td>
+					</tr>				
+				</table>
+			</p>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre6">About <span><a href="help.html">&#x25B2;</a></span></h2>
+			<div id="logos">
+				<a href="http://www.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logoUnivTours.jpg" alt="Tours university logo"/></a>
+				<a href="http://li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_LI.jpg" alt="Computer Science lab logo"/></a>
+				<a href="http://www.rfai.li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_RFAI.jpg" alt="RFAI team logo"/></a>
+			</div>
+			<p>The DINet Viewer platform has been developed by <a href="http://frederic.rayar.free.fr/" target="_blank">Fr&eacute;d&eacute;ric RAYAR</a> in the context of his PhD. <a href="mailto:frederic.rayar@univ-tours.fr">(frederic.rayar {at} univ-tours {dot} fr)</a></p>
+			<p>The PhD takes place in the Computer Science Laboratory of Tours (University Fran&ccedil;ois-Rabelais of Tours), under the supervision of Dr. Sabine Barrat, Dr. Fatma Bouali and Pr. Gilles Venturini.</p>
+			<p>The PhD endeavour work focus on jointly study the indexing and the visualisation for browsing large dynamic image collections, under the following constraints:
+				<ul>
+					<li><i>handling medium to large image collections</i>: the challenge is to handle real world data sets that can contains thousands to millions of images;</li>
+					<li><i>handling dynamic image collections: as images keep</i> flooding in a continuous way, it becomes mandatory to build structure in a dynamic way: images shall be either added or edited if needed;</li>
+					<li><i>providing interactive visualisations</i>: relevant visualisations - that are easy to interpret by the user - must be combined to interactions to allow the user to wander around the collection and make discoveries</li>
+				</ul>	
+		</div>		
+		
+	</body>
+</html>

@@ -1,0 +1,476 @@
+/* Properties of the entire application */
+body
+{
+	height: 100%;
+	margin:auto;
+	background-color: #D3CAAD;
+}
+
+#splashscreen
+{
+	position:absolute;
+	top:0;
+	left:0;
+    text-align: center;
+    width:100vw;
+    height:110vh;
+    background-color:white;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+#splashscreen_whole
+{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#splashscreen_image
+{
+	height:50vh;
+	margin-bottom: 40px;
+}
+
+#splashscreen_text
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	font-weight: normal;
+	/*text-transform: uppercase;*/
+	color: #000000;	
+}
+
+#splashscreen_button
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	color: black;
+	background-color: #D3CAAD;
+    border: none;
+    padding: 15px 32px;
+}
+
+/* Whole panel */
+#wholePanel
+{
+	width:90%;
+	height:95vh;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Controls panel */
+#controls
+{
+	width: 14%;
+	float: left;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	font-family: 'PT Sans Narrow',sans-serif;
+	margin-top: 25px;
+	margin-right: 15px;
+	position: relative;
+	bottom: 0px;
+	background-color: #ffffff;
+}
+
+#controls p
+{
+	text-align: left;
+	font-weight: bold;
+	font-size: 15px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+#controls input
+{
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+#controls button
+{
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+#controls form label
+{
+	font-size: 15px;
+}
+
+.controlsBox 
+{
+	border: 1px solid black;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+.controlsButtonStyle
+{
+	width: 90%;
+}
+
+#export 
+{
+	margin-top: 10px;
+	width: 50%;
+}
+
+#nodeSizeSlider
+{
+	width: 90%;
+	margin-top: 5px;
+}
+
+#edge-weight
+{
+	width: 60%;
+}
+
+#min-weight-val
+{
+	font-size: 15px;
+	line-height: 15px;
+}
+
+#max-weight-val
+{
+	font-size: 15px;	
+	line-height: 15px;
+}
+
+
+/* Graph panel */
+#graph-container
+{
+	display:block;
+	position: relative;
+	float: left;
+	width: 63%;
+	height: 100%;
+	border: 0px solid black;
+	margin-top:25px;
+	background-color: #ffffff;
+}
+
+#graph
+{
+	display:block;
+	width: 98%;
+	height: 98%;
+	position: relative;
+	z-index: 1;
+	padding: 5px;
+	text-align: left;
+}
+
+#graph canvas
+{
+	height: 100%;
+	width: 100%;
+}
+
+#rollUp
+{
+	position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 32px;
+    width: 32px;
+    z-index: 2;
+    padding: 0px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.buttonStyle
+{
+	height: 40px;
+    width: 40px;
+    padding: 0px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.buttonImage
+{
+	height: 100%;
+	width: auto;
+}
+
+#currentNode
+{
+	height: 0px;
+}
+
+#miniCurrentImage
+{
+	width: auto;
+	max-height: 150px;
+	margin-top: -150px;
+	margin-right: 15px;
+	float: right;
+	position: relative;
+	z-index: 2;
+}
+
+/* Properties of the tabs menu */
+#infobox
+{
+	display: block;
+	margin-top:25px;
+	float: right;
+	width: 20%;
+	height: 100%;
+	border: 0px solid black;
+	background-color: #ffffff;
+	padding-top: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+}
+
+
+#navButtons
+{
+	border: 1px solid black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#tabView
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'PT Sans Narrow',sans-serif;
+	margin-bottom: 20px;
+}
+
+#tabs
+{
+
+}
+
+.tab
+{
+	display: inline-block;
+	padding: 3px;
+	border: 1px solid black;
+	cursor: pointer;
+	width: 49%;
+	height: 75px;
+}
+
+.nonSelectedTab
+{
+	background: #ffffff;
+	border-bottom: 1px black solid;
+
+}
+
+.selectedTab
+{
+	background: #ffffff;
+	border-bottom: 0px black solid;
+
+}
+
+.tabsContent
+{
+	display: block;
+}
+
+.tabContent
+{
+	background-color: #ffffff;
+	margin-top: -1px;
+	padding: 20px 5px 5px 5px ;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+
+.selectedContent
+{
+	display: block;
+}
+
+.nonSelectedContent
+{
+	display: none;
+}
+
+/* Properties of the information list */
+#miniSelectedImage
+{
+	width: 70%;
+	cursor: pointer;
+}
+
+#zoomMessage
+{
+	font-style: italic;
+}
+
+#neighboursList
+{
+	list-style: none;
+	cursor: default;
+}
+
+#neighboursList a
+{
+	cursor: default;
+}
+
+#neighboursList li
+{
+	display: inline;
+	position: relative;
+	margin: 3px;
+}
+
+.neighbourImage
+{
+	width: 50%;
+	vertical-align: top;
+	margin-bottom: 4px;
+}
+
+#neighboursList a .neighbourImageZoom
+{
+	display: none;
+}
+
+#neighboursList a:hover .neighbourImageZoom
+{
+	display: block;
+	position: absolute;
+	top: -66px;
+	left: -90px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#neighboursList a .neighbourImageZoom
+{
+	width: 240%;
+}
+
+/* Properties of the logfile */
+#logfile
+{
+	list-style: none;
+}
+
+#currentLogNode
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+.logImage
+{
+	width: 50%;
+	cursor: pointer;
+}
+
+#currentLogImage
+{
+	box-shadow: 8px 8px 12px #555; 
+	cursor: default;
+}
+
+/* Properties of the help page */
+h1
+{
+	color: #FFFFFF;
+	text-align: center;
+}
+
+#menu
+{
+	margin-left: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 10px;
+	background-color: #D3D3D3;
+	width: 8%;
+}
+
+.section
+{
+	width: 100%;
+	background-color: #FFFFFF;
+	padding: 2px;
+	padding-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.centerImage
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.reduceImage
+{
+	width: 35%;
+}
+
+.italic
+{
+	font-style: italic;
+}
+
+#plots
+{
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;	
+}
+
+#edgesWeightsPlot
+{
+	float: left;
+	width: 49%;
+	height: auto;
+	padding:10px auto 10px auto;
+	margin-bottom: 30px;
+
+}
+
+#edgesWeightsHistogram
+{
+	float: right;
+	width: 49%;
+	height: auto;
+	padding:10px auto 10px auto;
+	margin-bottom: 30px;
+}
